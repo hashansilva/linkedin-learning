@@ -3,12 +3,7 @@ import java.util.List;
 public class InvestingChange {
 
     static double calculateAvgChangeInvested(List<Double> purchases) {
-        if (purchases.size() > 0) {
-            double change = purchases.stream().mapToDouble(purchase -> Math.abs(Math.ceil(purchase) - purchase)).sum();
-            return change / purchases.size();
-        }
-        return 0;
-
+        return purchases.stream().mapToDouble(purchase -> Math.abs(Math.ceil(purchase) - purchase)).average().orElse(0);
     }
 
     public static void main(String[] args) {
