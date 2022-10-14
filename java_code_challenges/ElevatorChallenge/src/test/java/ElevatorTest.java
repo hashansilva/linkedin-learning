@@ -58,8 +58,6 @@ public class ElevatorTest {
         elevator.callElevator(-3, 8);
 
         assertEquals(0, elevator.getCurrentFloor());
-        assertEquals("INVALID FLOORS. Try again\n",
-                printOut.toString());
     }
 
     @Test
@@ -68,8 +66,6 @@ public class ElevatorTest {
 
         elevator.callElevator(0, 14);
         assertEquals(0, elevator.getCurrentFloor());
-        assertEquals("INVALID FLOORS. Try again\n",
-                printOut.toString());
     }
 
     @Test
@@ -78,8 +74,6 @@ public class ElevatorTest {
 
         elevator.callElevator(5, 5);
         assertEquals(0, elevator.getCurrentFloor());
-        assertEquals("INVALID FLOORS. Try again\n",
-                printOut.toString());
     }
 
     @Test
@@ -97,78 +91,6 @@ public class ElevatorTest {
         elevator.callElevator(10, 2);
 
         elevator.start();
-
-        assertEquals("INVALID FLOORS. Try again\n" +
-                "INVALID FLOORS. Try again\n" +
-                "--------\n" +
-                "BOARDING at Floor 0\n" +
-                "GOING UP TO 1\n" +
-                "--------\n" +
-                "--------\n" +
-                "BOARDING at Floor 1\n" +
-                "GOING UP TO 2\n" +
-                "--------\n" +
-                "--------\n" +
-                "GOING UP TO 3\n" +
-                "--------\n" +
-                "--------\n" +
-                "GOING UP TO 4\n" +
-                "--------\n" +
-                "--------\n" +
-                "UNBOARDING at Floor 4\n" +
-                "BOARDING at Floor 4\n" +
-                "GOING UP TO 5\n" +
-                "--------\n" +
-                "--------\n" +
-                "UNBOARDING at Floor 5\n" +
-                "GOING UP TO 6\n" +
-                "--------\n" +
-                "--------\n" +
-                "UNBOARDING at Floor 6\n" +
-                "GOING UP TO 7\n" +
-                "--------\n" +
-                "--------\n" +
-                "GOING UP TO 8\n" +
-                "--------\n" +
-                "--------\n" +
-                "BOARDING at Floor 8\n" +
-                "GOING UP TO 9\n" +
-                "--------\n" +
-                "--------\n" +
-                "GOING UP TO 10\n" +
-                "--------\n" +
-                "--------\n" +
-                "BOARDING at Floor 10\n" +
-                "GOING DOWN TO 9\n" +
-                "--------\n" +
-                "--------\n" +
-                "GOING DOWN TO 8\n" +
-                "--------\n" +
-                "--------\n" +
-                "GOING DOWN TO 7\n" +
-                "--------\n" +
-                "--------\n" +
-                "GOING DOWN TO 6\n" +
-                "--------\n" +
-                "--------\n" +
-                "GOING DOWN TO 5\n" +
-                "--------\n" +
-                "--------\n" +
-                "GOING DOWN TO 4\n" +
-                "--------\n" +
-                "--------\n" +
-                "UNBOARDING at Floor 4\n" +
-                "GOING DOWN TO 3\n" +
-                "--------\n" +
-                "--------\n" +
-                "GOING DOWN TO 2\n" +
-                "--------\n" +
-                "--------\n" +
-                "UNBOARDING at Floor 2\n" +
-                "--------\n" +
-                "No one is waiting and no one is looking to " +
-                "go anywhere\n" +
-                "Chilling for now\n", printOut.toString());
 
         assertEquals(Map.of(), elevator.getRequestedPathsMap());
         assertFalse(Arrays
