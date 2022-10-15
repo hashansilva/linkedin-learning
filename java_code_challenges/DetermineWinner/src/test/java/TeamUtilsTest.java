@@ -80,15 +80,15 @@ public class TeamUtilsTest {
         List<Team> teams = List.of(team1, team2, team3);
         TeamUtils.revealResults(teams);
 
-        assertEquals("Now for the results, the WINNER is...\n" +
-                "With 15 points, it's team Eric and Rebecca!\n" +
-                "\n" +
-                "Then we have... \n" +
-                "With 12 points, it's team Tony and Shannon!\n" +
-                "\n" +
-                "Then we have... \n" +
-                "With 11 points, it's team Sally and Roger!\n" +
-                "\n", printOut.toString());
+        assertEquals("Now for the results, the WINNER is...\r\n" +
+                "With 15 points, it's team Eric and Rebecca!\r\n" +
+                "\r\n" +
+                "Then we have... \r\n" +
+                "With 12 points, it's team Tony and Shannon!\r\n" +
+                "\r\n" +
+                "Then we have... \r\n" +
+                "With 11 points, it's team Sally and Roger!\r\n" +
+                "\r\n", printOut.toString());
     }
 
     @Test
@@ -101,15 +101,15 @@ public class TeamUtilsTest {
         List<Team> teams = List.of(team1, team2, team3);
         TeamUtils.revealResults(teams);
 
-        assertEquals("Now for the results, the WINNER is...\n" +
-                "With 15 points, it's team Eric and Rebecca!\n" +
-                "\n" +
-                "Then we have... \n" +
-                "With 9 points, it's team Tony and Shannon!\n" +
-                "\n" +
-                "Then we have... \n" +
-                "With 7 points, it's team Sally and Roger!\n" +
-                "\n", printOut.toString());
+        assertEquals("Now for the results, the WINNER is...\r\n" +
+                "With 15 points, it's team Eric and Rebecca!\r\n" +
+                "\r\n" +
+                "Then we have... \r\n" +
+                "With 9 points, it's team Tony and Shannon!\r\n" +
+                "\r\n" +
+                "Then we have... \r\n" +
+                "With 7 points, it's team Sally and Roger!\r\n" +
+                "\r\n", printOut.toString());
     }
 
     @Test
@@ -118,7 +118,7 @@ public class TeamUtilsTest {
         List<Team> teams = List.of(team1, team2, team3);
         TeamUtils.revealResults(teams);
 
-        assertEquals("The game hasn't started yet.\n",
+        assertEquals("The game hasn't started yet.\r\n",
                 printOut.toString());
     }
 
@@ -128,7 +128,7 @@ public class TeamUtilsTest {
         List<Team> teams = List.of();
         TeamUtils.revealResults(teams);
 
-        assertEquals("The game hasn't started yet.\n",
+        assertEquals("The game hasn't started yet.\r\n",
                 printOut.toString());
     }
 
@@ -142,14 +142,14 @@ public class TeamUtilsTest {
 
         TeamUtils.revealResults(teams);
 
-        assertEquals("Now for the results, the WINNER is...\n" +
-                "It's a TIE!\n" +
-                "With 12 points, it's team Sally and Roger!\n" +
-                "With 12 points, it's team Eric and Rebecca!\n" +
-                "\n" +
-                "Then we have... \n" +
-                "With 10 points, it's team Tony and Shannon!\n" +
-                "\n", printOut.toString());
+        assertEquals("Now for the results, the WINNER is...\r\n" +
+                "It's a TIE!\r\n" +
+                "With 12 points, it's team Sally and Roger!\r\n" +
+                "With 12 points, it's team Eric and Rebecca!\r\n" +
+                "\r\n" +
+                "Then we have... \r\n" +
+                "With 10 points, it's team Tony and Shannon!\r\n" +
+                "\r\n", printOut.toString());
     }
 
     @Test
@@ -162,13 +162,13 @@ public class TeamUtilsTest {
 
         TeamUtils.revealResults(teams);
 
-        assertEquals("Now for the results, the WINNER is...\n" +
-                "With 14 points, it's team Sally and Roger!\n" +
-                "\n" +
-                "Then we have... \n" +
-                "It's a TIE!\n" +
-                "With 10 points, it's team Eric and Rebecca!\n" +
-                "With 10 points, it's team Tony and Shannon!\n" +
-                "\n", printOut.toString());
+        assertEquals("Now for the results, the WINNER is...\r\n" +
+                "With 14 points, it's team Sally and Roger!\r\n" +
+                "\r\n" +
+                "Then we have... \r\n" +
+                "It's a TIE!\r\n" +
+                "With 10 points, it's team Eric and Rebecca!\r\n" +
+                "With 10 points, it's team Tony and Shannon!\r\n" +
+                "\r\n", printOut.toString());
     }
 }

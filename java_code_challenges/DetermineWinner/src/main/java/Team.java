@@ -16,5 +16,9 @@ public class Team {
         this.player2 = player2;
         scores = new ArrayList<>();
     }
+
+    public int sumTotalScore() {
+        return scores.stream().filter(score -> score > 0).reduce(Integer::sum).orElse(0);
+    }
 }
 
