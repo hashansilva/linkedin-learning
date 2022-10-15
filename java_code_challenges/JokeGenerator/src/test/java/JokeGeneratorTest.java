@@ -50,7 +50,7 @@ public class JokeGeneratorTest {
                 .parseJoke("today");
 
         assertFalse(jokeOpt.isPresent());
-        assertEquals("Must be out of jokes for now.\n",
+        assertEquals("Must be out of jokes for now.\r\n",
                 printOut.toString());
     }
 
@@ -71,9 +71,6 @@ public class JokeGeneratorTest {
 
         JokeGenerator.tellJoke(joke);
 
-        assertEquals("""
-                Get ready...
-                For the punchline!
-                """, printOut.toString());
+        assertEquals("Get ready...\r\nFor the punchline!\r\n", printOut.toString());
     }
 }
