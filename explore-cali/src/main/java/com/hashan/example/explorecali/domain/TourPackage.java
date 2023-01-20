@@ -13,16 +13,34 @@
  *
  */
 
-package com.hashan.example.explorecali;
+package com.hashan.example.explorecali.domain;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
-@SpringBootTest
-class ExploreCaliApplicationTests {
+@Entity
+public class TourPackage {
 
-	@Test
-	void contextLoads() {
-	}
+    @Id
+    private String code;
 
+    @Column
+    private String name;
+
+    public TourPackage(String code, String name) {
+        this.code = code;
+        this.name = name;
+    }
+
+    public TourPackage() {
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public String getName() {
+        return name;
+    }
 }

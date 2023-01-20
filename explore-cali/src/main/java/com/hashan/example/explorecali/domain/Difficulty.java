@@ -13,16 +13,8 @@
  *
  */
 
-package com.hashan.example.explorecali;
+package com.hashan.example.explorecali.domain;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
-@SpringBootTest
-class ExploreCaliApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
-
+public enum Difficulty {
+    Easy, Medium, Difficult, Varies
 }
