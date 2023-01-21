@@ -13,34 +13,10 @@
  *
  */
 
-package com.hashan.example.explorecali.domain;
+package com.hashan.example.explorecali.repository;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.hashan.example.explorecali.domain.TourPackage;
+import org.springframework.data.repository.CrudRepository;
 
-@Entity
-public class TourPackage {
-
-    @Id
-    private String code;
-
-    @Column
-    private String name;
-
-    public TourPackage(String code, String name) {
-        this.code = code;
-        this.name = name;
-    }
-
-    protected TourPackage() {
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public String getName() {
-        return name;
-    }
+public interface TourPackageRepository extends CrudRepository<TourPackage, String> {
 }

@@ -15,14 +15,53 @@
 
 package com.hashan.example.explorecali;
 
+import com.hashan.example.explorecali.domain.TourPackage;
+import com.hashan.example.explorecali.service.TourPackageService;
+import com.hashan.example.explorecali.service.TourService;
+import com.hashan.example.explorecali.util.CreateUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
+
+import java.io.IOException;
+import java.util.List;
 
 @SpringBootApplication
-public class ExploreCaliApplication {
+public class ExploreCaliApplication implements CommandLineRunner {
+
+	@Autowired
+	private TourPackageService tourPackageService;
+
+	@Autowired
+	private TourService tourService;
+
+	@Autowired
+	private ResourceLoader resourceLoader;
+
+	private static String TOUR_PACKAGE_FILE_NAME = "tourPackages.json";
 
 	public static void main(String[] args) {
 		SpringApplication.run(ExploreCaliApplication.class, args);
 	}
 
+	@Override
+	public void run(String... args) throws Exception {
+		this.createTourPackages();
+		this.createTours();
+	}
+
+	private void createTours() {
+	}
+
+	private void createTourPackages() throws IOException {
+
+		Resource resource = this.resourceLoader.getResource("classpath:" + TOUR_PACKAGE_FILE_NAME);
+		List<TourPackage> tourPackageList = new CreateUtil().createTourPackagesFromFile(resource);
+		tourPackageList.forEach(tourPackage -> {
+			this.tourPackageService.createTourPackage(tourPackage.getCode(), tourPackage.getName());
+		});
+	}
 }
