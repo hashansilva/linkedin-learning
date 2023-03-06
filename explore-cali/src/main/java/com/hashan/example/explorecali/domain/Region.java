@@ -16,7 +16,7 @@
 package com.hashan.example.explorecali.domain;
 
 public enum Region {
-    Central_Coast("Central Coast"), Southern_California("Southern California"), Northern_California("Northern California"), Varies("Varies");
+    Central_Colombo("Central Colombo"), Southern_Colombo("Southern Colombo"), Northern_Colombo("Northern Colombo"), Varies("Varies");
 
     private String label;
 

@@ -21,6 +21,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hashan.example.explorecali.domain.Tour;
 import com.hashan.example.explorecali.domain.TourPackage;
+import com.hashan.example.explorecali.model.TourFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
@@ -35,14 +36,13 @@ public class CreateUtil {
     private ResourceLoader resourceLoader;
 
     /**
-     * Create a list of Tour objects from a JSON file
-     *
-     * @param fileName
+     * Create tour from a JSON file
+     * @param resource
      * @return
      * @throws IOException
      */
-    public static List<Tour> createToursFromFile(String fileName) throws IOException {
-        return new ObjectMapper().setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY).readValue(new FileInputStream(fileName), List.class);
+    public List<TourFile> createToursFromFile(Resource resource) throws IOException {
+        return new ObjectMapper().setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY).readValue(resource.getInputStream(), new TypeReference<List<TourFile>>(){});
     }
 
     /**

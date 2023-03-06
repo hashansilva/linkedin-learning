@@ -16,6 +16,7 @@
 package com.hashan.example.explorecali;
 
 import com.hashan.example.explorecali.domain.TourPackage;
+import com.hashan.example.explorecali.model.TourFile;
 import com.hashan.example.explorecali.service.TourPackageService;
 import com.hashan.example.explorecali.service.TourService;
 import com.hashan.example.explorecali.util.CreateUtil;
@@ -42,6 +43,7 @@ public class ExploreCaliApplication implements CommandLineRunner {
 	private ResourceLoader resourceLoader;
 
 	private static String TOUR_PACKAGE_FILE_NAME = "tourPackages.json";
+	private static String TOUR_FILE_NAME = "tours.json";
 
 	public static void main(String[] args) {
 		SpringApplication.run(ExploreCaliApplication.class, args);
@@ -53,9 +55,35 @@ public class ExploreCaliApplication implements CommandLineRunner {
 		this.createTours();
 	}
 
-	private void createTours() {
+	/**
+	 * Create tour from a JSON file
+	 *
+	 * @throws IOException
+	 */
+	private void createTours() throws IOException {
+		Resource resource = this.resourceLoader.getResource("classpath:" + TOUR_FILE_NAME);
+		List<TourFile> tourList = new CreateUtil().createToursFromFile(resource);
+		tourList.forEach(tour -> {
+			this.tourService.createTour(
+					tour.getTitle(),
+					tour.getDescription(),
+					tour.getBlurb(),
+					tour.getPrice(),
+					tour.getDuration(),
+					tour.getBullets(),
+					tour.getKeywords(),
+					tour.getTourPackageCode(),
+					tour.getDifficulty(),
+					tour.getRegion());
+		});
+		long totalTours = this.tourService.getCount();
 	}
 
+	/**
+	 * Create tour packages from a JSON file
+	 *
+	 * @throws IOException
+	 */
 	private void createTourPackages() throws IOException {
 
 		Resource resource = this.resourceLoader.getResource("classpath:" + TOUR_PACKAGE_FILE_NAME);

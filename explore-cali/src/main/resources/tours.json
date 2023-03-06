@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Colombo City Tour",
+    "description": "Discover the vibrant city of Colombo on this half-day tour, visiting its iconic landmarks and immersing yourself in the local culture.",
+    "blurb": "Experience the best of Colombo in just a few hours.",
+    "price": 50,
+    "duration": "4 hours",
+    "bullets": "Visit the Gangaramaya Temple, the National Museum, and the Old Parliament Building",
+    "keywords": "Colombo, City Tour, Gangaramaya Temple, National Museum, Old Parliament Building",
+    "difficulty": "Easy",
+    "region": "Southern Colombo",
+    "tourPackageCode": "COL_CITY_TOUR"
+  },
+  {
+    "title": "Colombo Street Food Tour",
+    "description": "Discover the best of Colombo's street food on this half-day tour, visiting its iconic landmarks and immersing yourself in the local culture.",
+    "blurb": "Experience the delicious flavors of Colombo on this food tour.",
+    "price": 45,
+    "duration": "3 hours",
+    "bullets": "Sample a variety of Sri Lankan dishes at local eateries and food stalls, Learn about the history and culture of Sri Lankan cuisine, Discover hidden food gems and off-the-beaten-path eateries",
+    "keywords": "Colombo, Street Food Tour, Sri Lankan Food, Food Tour, Food Stall, Food Eateries",
+    "difficulty": "Easy",
+    "region": "Central Colombo",
+    "tourPackageCode": "COL_STREET_FOOD_TOUR"
+  },
+  {
+    "title": "Colombo Nightlife Tour",
+    "description": "Experience the vibrant nightlife scene in Colombo, visiting trendy bars, clubs, and rooftop lounges.",
+    "blurb": "Experience the best of Colombo's nightlife on this tour.",
+    "price": 60,
+    "duration": "4 hours",
+    "bullets": "Visit trendy bars, clubs, and rooftop lounges, Enjoy a variety of drinks and cocktails, Learn about the history and culture of Sri Lankan nightlife",
+    "keywords": "Colombo, Nightlife Tour, Nightlife, Bars, Clubs, Rooftop Lounges, Drinks, Cocktails, Sri Lankan Nightlife",
+    "difficulty": "Medium",
+    "region": "Northern Colombo",
+    "tourPackageCode": "COL_NIGHT_LIFE_TOUR"
+  }
+]

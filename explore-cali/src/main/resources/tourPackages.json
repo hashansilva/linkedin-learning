@@ -1,10 +1,14 @@
 [
   {
-    "code": "TEST1",
-    "name": "Test 1"
+    "code": "COL_CITY_TOUR",
+    "name": "Colombo City Tour"
   },
   {
-    "code": "TEST2",
-    "name": "Test 2"
+    "code": "COL_STREET_FOOD_TOUR",
+    "name": "Colombo Street Food Tour"
+  },
+  {
+    "code": "COL_NIGHT_LIFE_TOUR",
+    "name": "Colombo Nightlife Tour"
   }
 ]
