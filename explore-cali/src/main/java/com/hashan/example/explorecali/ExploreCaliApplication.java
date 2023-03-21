@@ -76,7 +76,6 @@ public class ExploreCaliApplication implements CommandLineRunner {
 					tour.getDifficulty(),
 					tour.getRegion());
 		});
-		long totalTours = this.tourService.getCount();
 	}
 
 	/**
