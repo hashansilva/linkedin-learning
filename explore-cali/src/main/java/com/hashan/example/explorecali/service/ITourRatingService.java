@@ -15,50 +15,35 @@
 
 package com.hashan.example.explorecali.service;
 
-import com.hashan.example.explorecali.domain.Difficulty;
-import com.hashan.example.explorecali.domain.Region;
-import com.hashan.example.explorecali.domain.Tour;
+import com.hashan.example.explorecali.model.RatingDto;
 import org.apache.commons.lang3.NotImplementedException;
 
 import java.util.List;
+import java.util.Map;
 
-public interface ITourService {
+public interface ITourRatingService {
 
     /**
-     * Create a new Tour
-     * @param title
-     * @param description
-     * @param blurb
-     * @param price
-     * @param duration
-     * @param bullets
-     * @param keywords
-     * @param tourPackageCode
-     * @param difficulty
-     * @param region
-     * @return
+     * create a new tour rating
+     *
+     * @param tourId    the tour
+     * @param ratingDto rating
      */
-    public default Tour createTour(String title, String description, String blurb, Integer price, String duration, String bullets, String keywords, String tourPackageCode, Difficulty difficulty, Region region) {
+    default public void createTourRating(Integer tourId, RatingDto ratingDto) {
         throw new NotImplementedException("Not implemented");
     }
 
     /**
-     * Lookup all Tours
+     * get all the tour ratings for the given tour
+     *
+     * @param tourId the tour
      * @return
      */
-    public default List<Tour> getTours() {
+    default public List<RatingDto> getAllTourRatings(Integer tourId) {
         throw new NotImplementedException("Not implemented");
     }
 
-    /**
-     * Get count of Tours
-     * @return
-     */
-    public default Long getCount(){
-        throw new NotImplementedException("Not implemented");
-    }
-
-    default public Tour findTourById(Integer id) {
+    default public Map<String, Double> getAverageRatingForTour(Integer tourId) {
         throw new NotImplementedException("Not implemented");
     }
 

@@ -25,7 +25,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.NoSuchElementException;
 
 @Service
 public class TourService implements ITourService {
@@ -54,4 +54,8 @@ public class TourService implements ITourService {
         return this.tourRepository.count();
     }
 
+    @Override
+    public Tour findTourById(Integer id) {
+        return this.tourRepository.findById(id).orElseThrow(() -> new NoSuchElementException("Tour does not exist " + id));
+    }
 }
