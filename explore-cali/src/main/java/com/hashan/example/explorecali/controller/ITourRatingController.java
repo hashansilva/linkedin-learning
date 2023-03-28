@@ -55,9 +55,46 @@ public interface ITourRatingController {
      */
     @GetMapping(path = "average")
     @ResponseStatus(HttpStatus.OK)
-    default public Map<String, Double> getAverageRatingForTour(@PathVariable(value = "id") Integer id){
+    default public Map<String, Double> getAverageRatingForTour(@PathVariable(value = "id") Integer id) {
         throw new NotImplementedException("Not implemented");
     }
 
+    /**
+     * Update the tour rating for the given tour id
+     *
+     * @param id     the tour id
+     * @param rating the tour rating
+     * @return the tour rating
+     */
+    @PutMapping
+    @ResponseStatus(HttpStatus.OK)
+    default public RatingDto updateTourRating(@PathVariable(value = "id") Integer id, @RequestBody @Validated RatingDto rating) {
+        throw new NotImplementedException("Not implemented");
+    }
+
+    /**
+     * Update tour rating with patch
+     *
+     * @param id
+     * @param rating
+     * @return
+     */
+    @PatchMapping
+    @ResponseStatus(HttpStatus.OK)
+    default public RatingDto updateTourRatingWithPatch(@PathVariable(value = "id") Integer id, @RequestBody @Validated RatingDto rating) {
+        throw new NotImplementedException("Not implemented");
+    }
+
+    /**
+     * Delete the given tour rating
+     *
+     * @param id
+     * @param customerId
+     */
+    @DeleteMapping(path = "/{customerId}")
+    @ResponseStatus(HttpStatus.OK)
+    default public void deleteTourRating(@PathVariable(value = "id") Integer id, @PathVariable(value = "customerId") Integer customerId) {
+        throw new NotImplementedException("Not implemented");
+    }
 
 }

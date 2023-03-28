@@ -61,4 +61,19 @@ public class TourRatingController implements ITourRatingController {
     public Map<String, Double> getAverageRatingForTour(Integer id) {
         return this.tourRatingService.getAverageRatingForTour(id);
     }
+
+    @Override
+    public RatingDto updateTourRating(Integer id, RatingDto rating) {
+        return this.tourRatingService.updateTourRating(id, rating);
+    }
+
+    @Override
+    public RatingDto updateTourRatingWithPatch(Integer id, RatingDto rating) {
+        return this.tourRatingService.updateTourRatingWithPatch(id, rating);
+    }
+
+    @Override
+    public void deleteTourRating(Integer id, Integer customerId) {
+        this.tourRatingService.deleteTourRating(id, customerId);
+    }
 }
