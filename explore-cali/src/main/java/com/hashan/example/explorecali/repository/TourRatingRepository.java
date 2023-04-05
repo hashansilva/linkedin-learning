@@ -16,7 +16,6 @@
 package com.hashan.example.explorecali.repository;
 
 import com.hashan.example.explorecali.domain.TourRating;
-import com.hashan.example.explorecali.domain.TourRatingId;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
@@ -24,20 +23,22 @@ import java.util.List;
 import java.util.Optional;
 
 @RepositoryRestResource(exported = false)
-public interface TourRatingRepository extends CrudRepository<TourRating, TourRatingId> {
-
-    /**
-     * Get the list of tour ratings by the given tour id
-     * @param tourId
-     * @return
-     */
-    List<TourRating> findByIdTourId(Integer tourId);
+public interface TourRatingRepository extends CrudRepository<TourRating, String> {
 
     /**
      * Get the tour rating by the given tour id and customer id
+     *
      * @param tourId
      * @param customerId
      * @return
      **/
-    Optional<TourRating> findByIdTourIdAndIdCustomerId(Integer tourId, Integer customerId);
+    Optional<TourRating> findByTourIdAndCustomerId(String tourId, String customerId);
+
+    /**
+     * Find the tour rating by given tour id
+     *
+     * @param tourId
+     * @return
+     */
+    List<TourRating> findByTourId(String tourId);
 }

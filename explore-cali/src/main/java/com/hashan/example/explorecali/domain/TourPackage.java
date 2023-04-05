@@ -15,17 +15,15 @@
 
 package com.hashan.example.explorecali.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+@Document
 public class TourPackage {
 
     @Id
     private String code;
 
-    @Column
     private String name;
 
     public TourPackage(String code, String name) {

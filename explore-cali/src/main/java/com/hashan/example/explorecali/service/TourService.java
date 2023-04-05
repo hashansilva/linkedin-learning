@@ -15,8 +15,6 @@
 
 package com.hashan.example.explorecali.service;
 
-import com.hashan.example.explorecali.domain.Difficulty;
-import com.hashan.example.explorecali.domain.Region;
 import com.hashan.example.explorecali.domain.Tour;
 import com.hashan.example.explorecali.domain.TourPackage;
 import com.hashan.example.explorecali.repository.TourPackageRepository;
@@ -25,6 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
 
 @Service
@@ -37,11 +36,10 @@ public class TourService implements ITourService {
     private TourPackageRepository tourPackageRepository;
 
     @Override
-    public Tour createTour(String title, String description, String blurb, Integer price, String duration, String bullets, String keywords, String tourPackageCode, Difficulty difficulty, Region region) {
-        TourPackage tourPackage = this.tourPackageRepository.findById(tourPackageCode).orElseThrow(
-                () -> new RuntimeException("Tour package does not exist: " + tourPackageCode)
-        );
-        return this.tourRepository.save(new Tour(title, description, blurb, price, duration, bullets, keywords, difficulty, region, tourPackage));
+    public Tour createTour(String title, String tourPackageName, Map<String, String> details) {
+        TourPackage tourPackage = this.tourPackageRepository.findByName(tourPackageName).orElseThrow(
+                () -> new RuntimeException("Tour package does not exist: " + tourPackageName));
+        return this.tourRepository.save(new Tour(title, tourPackage, details));
     }
 
     @Override
@@ -55,7 +53,7 @@ public class TourService implements ITourService {
     }
 
     @Override
-    public Tour findTourById(Integer id) {
+    public Tour findTourById(String id) {
         return this.tourRepository.findById(id).orElseThrow(() -> new NoSuchElementException("Tour does not exist " + id));
     }
 }

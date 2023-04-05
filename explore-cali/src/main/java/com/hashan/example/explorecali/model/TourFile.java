@@ -15,59 +15,35 @@
 
 package com.hashan.example.explorecali.model;
 
-import com.hashan.example.explorecali.domain.Difficulty;
-import com.hashan.example.explorecali.domain.Region;
+import java.util.Map;
 
 public class TourFile {
 
     private String title;
-    private String description;
-    private String blurb;
-    private Integer price;
-    private String duration;
-    private String bullets;
-    private String keywords;
-    private String tourPackageCode;
-    private String difficulty;
-    private String region;
+    private String tourPackageName;
+    private Map<String, String> details;
 
     public String getTitle() {
         return title;
     }
 
-    public String getDescription() {
-        return description;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getBlurb() {
-        return blurb;
+    public String getTourPackageName() {
+        return tourPackageName;
     }
 
-    public Integer getPrice() {
-        return price;
+    public void setTourPackageName(String tourPackageName) {
+        this.tourPackageName = tourPackageName;
     }
 
-    public String getDuration() {
-        return duration;
+    public Map<String, String> getDetails() {
+        return details;
     }
 
-    public String getBullets() {
-        return bullets;
-    }
-
-    public String getKeywords() {
-        return keywords;
-    }
-
-    public String getTourPackageCode() {
-        return tourPackageCode;
-    }
-
-    public Difficulty getDifficulty() {
-        return Difficulty.valueOf(difficulty);
-    }
-
-    public Region getRegion() {
-        return Region.findByLabel(region);
+    public void setDetails(Map<String, String> details) {
+        this.details = details;
     }
 }

@@ -66,15 +66,8 @@ public class ExploreCaliApplication implements CommandLineRunner {
 		tourList.forEach(tour -> {
 			this.tourService.createTour(
 					tour.getTitle(),
-					tour.getDescription(),
-					tour.getBlurb(),
-					tour.getPrice(),
-					tour.getDuration(),
-					tour.getBullets(),
-					tour.getKeywords(),
-					tour.getTourPackageCode(),
-					tour.getDifficulty(),
-					tour.getRegion());
+					tour.getTourPackageName(),
+					tour.getDetails());
 		});
 	}
 

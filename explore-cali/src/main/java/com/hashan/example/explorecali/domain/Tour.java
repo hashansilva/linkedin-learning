@@ -15,128 +15,75 @@
 
 package com.hashan.example.explorecali.domain;
 
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.Map;
 
 
-@Entity
+@Document
 public class Tour {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private Integer id;
+    private String id;
 
-    @Column(name = "title", nullable = false)
+    @Indexed
     private String title;
 
-    @Column(name = "description", length = 2000)
-    private String description;
+    @Indexed
+    private String tourPackageCode;
 
-    @Column(name = "blurb", length = 2000)
-    private String blurb;
+    private String tourPackageName;
 
-    @Column(name = "price", nullable = false)
-    private Integer price;
-
-    @Column(name = "duration", nullable = false)
-    private String duration;
-
-    @Column(name = "bullets", length = 2000)
-    private String bullets;
-
-    @Column(name = "keywords", length = 2000)
-    private String keywords;
-
-    @Enumerated
-    @Column(name = "difficulty")
-    private Difficulty difficulty;
-
-    @Enumerated
-    @Column(name = "region")
-    private Region region;
-
-    @ManyToOne
-    private TourPackage tourPackage;
+    private Map<String, String> details;
 
 
-    public String getDescription() {
-        return description;
+    public Tour(String title, TourPackage tourPackage, Map<String, String> details) {
+        this.title = title;
+        this.tourPackageCode = tourPackage.getCode();
+        this.tourPackageName = tourPackage.getName();
+        this.details = details;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public void setTitle(String title) {
         this.title = title;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public String getTourPackageCode() {
+        return tourPackageCode;
     }
 
-    public String getBlurb() {
-        return blurb;
+    public void setTourPackageCode(String tourPackageCode) {
+        this.tourPackageCode = tourPackageCode;
     }
 
-    public void setBlurb(String blurb) {
-        this.blurb = blurb;
+    public String getTourPackageName() {
+        return tourPackageName;
     }
 
-    public Integer getPrice() {
-        return price;
+    public void setTourPackageName(String tourPackageName) {
+        this.tourPackageName = tourPackageName;
     }
 
-    public void setPrice(Integer price) {
-        this.price = price;
+    public Map<String, String> getDetails() {
+        return details;
     }
 
-    public String getDuration() {
-        return duration;
-    }
-
-    public void setDuration(String duration) {
-        this.duration = duration;
-    }
-
-    public String getBullets() {
-        return bullets;
-    }
-
-    public void setBullets(String bullets) {
-        this.bullets = bullets;
-    }
-
-    public String getKeywords() {
-        return keywords;
-    }
-
-    public void setKeywords(String keywords) {
-        this.keywords = keywords;
-    }
-
-    protected Tour() {
-    }
-
-    public Tour(String title, String description, String blurb, Integer price, String duration, String bullets, String keywords, Difficulty difficulty, Region region, TourPackage tourPackage) {
-        this.title = title;
-        this.description = description;
-        this.blurb = blurb;
-        this.price = price;
-        this.duration = duration;
-        this.bullets = bullets;
-        this.keywords = keywords;
-        this.difficulty = difficulty;
-        this.region = region;
-        this.tourPackage = tourPackage;
+    public void setDetails(Map<String, String> details) {
+        this.details = details;
     }
 }

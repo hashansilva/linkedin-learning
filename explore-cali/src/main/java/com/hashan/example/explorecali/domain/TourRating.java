@@ -15,31 +15,35 @@
 
 package com.hashan.example.explorecali.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+@Document
 public class TourRating {
 
-    @EmbeddedId
-    private TourRatingId id;
+    @Id
+    private String id;
 
-    @Column(nullable = false)
+    private String tourId;
+
+    @NotNull
+    private String customerId;
+
+    @Min(0)
+    @Max(5)
     private Integer score;
 
-    @Column(nullable = false)
+    @Size(max = 255)
     private String comment;
 
-    /**
-     * TourRating constructor
-     *
-     * @param id
-     * @param score
-     * @param comment
-     */
-    public TourRating(TourRatingId id, Integer score, String comment) {
-        this.id = id;
+    public TourRating(String tourId, String customerId, Integer score, String comment) {
+        this.tourId = tourId;
+        this.customerId = customerId;
         this.score = score;
         this.comment = comment;
     }
@@ -48,12 +52,28 @@ public class TourRating {
 
     }
 
-    public TourRatingId getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(TourRatingId id) {
+    public void setId(String id) {
         this.id = id;
+    }
+
+    public String getTourId() {
+        return tourId;
+    }
+
+    public void setTourId(String tourId) {
+        this.tourId = tourId;
+    }
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
     }
 
     public Integer getScore() {

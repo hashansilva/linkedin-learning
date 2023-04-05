@@ -1,15 +1,17 @@
 [
   {
     "title": "Colombo City Tour",
-    "description": "Discover the vibrant city of Colombo on this half-day tour, visiting its iconic landmarks and immersing yourself in the local culture.",
-    "blurb": "Experience the best of Colombo in just a few hours.",
-    "price": 50,
-    "duration": "4 hours",
-    "bullets": "Visit the Gangaramaya Temple, the National Museum, and the Old Parliament Building",
-    "keywords": "Colombo, City Tour, Gangaramaya Temple, National Museum, Old Parliament Building",
-    "difficulty": "Easy",
-    "region": "Southern Colombo",
-    "tourPackageCode": "COL_CITY_TOUR"
+    "details": {
+      "description": "Discover the vibrant city of Colombo on this half-day tour, visiting its iconic landmarks and immersing yourself in the local culture.",
+      "blurb": "Experience the best of Colombo in just a few hours.",
+      "price": 50,
+      "duration": "4 hours",
+      "bullets": "Visit the Gangaramaya Temple, the National Museum, and the Old Parliament Building",
+      "keywords": "Colombo, City Tour, Gangaramaya Temple, National Museum, Old Parliament Building",
+      "difficulty": "Easy",
+      "region": "Southern Colombo"
+    },
+    "tourPackageName": "Colombo City Tour"
   },
   {
     "title": "Colombo Street Food Tour",
@@ -21,7 +23,7 @@
     "keywords": "Colombo, Street Food Tour, Sri Lankan Food, Food Tour, Food Stall, Food Eateries",
     "difficulty": "Easy",
     "region": "Central Colombo",
-    "tourPackageCode": "COL_STREET_FOOD_TOUR"
+    "tourPackageName": "Colombo Street Food Tour"
   },
   {
     "title": "Colombo Nightlife Tour",
@@ -33,6 +35,6 @@
     "keywords": "Colombo, Nightlife Tour, Nightlife, Bars, Clubs, Rooftop Lounges, Drinks, Cocktails, Sri Lankan Nightlife",
     "difficulty": "Medium",
     "region": "Northern Colombo",
-    "tourPackageCode": "COL_NIGHT_LIFE_TOUR"
+    "tourPackageName": "Colombo Nightlife Tour"
   }
 ]

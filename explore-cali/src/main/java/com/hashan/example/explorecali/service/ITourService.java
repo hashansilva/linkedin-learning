@@ -15,30 +15,23 @@
 
 package com.hashan.example.explorecali.service;
 
-import com.hashan.example.explorecali.domain.Difficulty;
-import com.hashan.example.explorecali.domain.Region;
 import com.hashan.example.explorecali.domain.Tour;
 import org.apache.commons.lang3.NotImplementedException;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ITourService {
 
     /**
-     * Create a new Tour
+     * Create a new tour
+     *
      * @param title
-     * @param description
-     * @param blurb
-     * @param price
-     * @param duration
-     * @param bullets
-     * @param keywords
-     * @param tourPackageCode
-     * @param difficulty
-     * @param region
+     * @param tourPackageName
+     * @param details
      * @return
      */
-    public default Tour createTour(String title, String description, String blurb, Integer price, String duration, String bullets, String keywords, String tourPackageCode, Difficulty difficulty, Region region) {
+    public default Tour createTour(String title, String tourPackageName, Map<String, String> details) {
         throw new NotImplementedException("Not implemented");
     }
 
@@ -52,13 +45,20 @@ public interface ITourService {
 
     /**
      * Get count of Tours
+     *
      * @return
      */
-    public default Long getCount(){
+    public default Long getCount() {
         throw new NotImplementedException("Not implemented");
     }
 
-    default public Tour findTourById(Integer id) {
+    /**
+     * Find tour by id
+     *
+     * @param id
+     * @return
+     */
+    default public Tour findTourById(String id) {
         throw new NotImplementedException("Not implemented");
     }
 

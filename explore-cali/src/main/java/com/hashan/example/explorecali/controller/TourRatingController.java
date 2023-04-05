@@ -15,8 +15,7 @@
 
 package com.hashan.example.explorecali.controller;
 
-import com.hashan.example.explorecali.domain.Tour;
-import com.hashan.example.explorecali.model.RatingDto;
+import com.hashan.example.explorecali.domain.TourRating;
 import com.hashan.example.explorecali.service.TourRatingService;
 import com.hashan.example.explorecali.service.TourService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +28,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(path = "tours/{id}/ratings")
@@ -48,32 +46,32 @@ public class TourRatingController implements ITourRatingController {
     }
 
     @Override
-    public void createTourRating(Integer id, RatingDto rating) {
+    public void createTourRating(String id, TourRating rating) {
         this.tourRatingService.createTourRating(id, rating);
     }
 
     @Override
-    public List<RatingDto> getAllRatingsForTour(Integer id) {
+    public List<TourRating> getAllRatingsForTour(String id) {
         return this.tourRatingService.getAllTourRatings(id);
     }
 
     @Override
-    public Map<String, Double> getAverageRatingForTour(Integer id) {
+    public Map<String, Double> getAverageRatingForTour(String id) {
         return this.tourRatingService.getAverageRatingForTour(id);
     }
 
     @Override
-    public RatingDto updateTourRating(Integer id, RatingDto rating) {
+    public TourRating updateTourRating(String id, TourRating rating) {
         return this.tourRatingService.updateTourRating(id, rating);
     }
 
     @Override
-    public RatingDto updateTourRatingWithPatch(Integer id, RatingDto rating) {
+    public TourRating updateTourRatingWithPatch(String id, TourRating rating) {
         return this.tourRatingService.updateTourRatingWithPatch(id, rating);
     }
 
     @Override
-    public void deleteTourRating(Integer id, Integer customerId) {
+    public void deleteTourRating(String id, String customerId) {
         this.tourRatingService.deleteTourRating(id, customerId);
     }
 }

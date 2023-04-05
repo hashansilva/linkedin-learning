@@ -16,7 +16,6 @@
 package com.hashan.example.explorecali.service;
 
 import com.hashan.example.explorecali.domain.TourRating;
-import com.hashan.example.explorecali.model.RatingDto;
 import org.apache.commons.lang3.NotImplementedException;
 
 import java.util.List;
@@ -27,10 +26,10 @@ public interface ITourRatingService {
     /**
      * create a new tour rating
      *
-     * @param tourId    the tour
-     * @param ratingDto rating
+     * @param tourId     the tour
+     * @param tourRating rating
      */
-    default public void createTourRating(Integer tourId, RatingDto ratingDto) {
+    default public void createTourRating(String tourId, TourRating tourRating) {
         throw new NotImplementedException("Not implemented");
     }
 
@@ -40,7 +39,7 @@ public interface ITourRatingService {
      * @param tourId the tour
      * @return
      */
-    default public List<RatingDto> getAllTourRatings(Integer tourId) {
+    default public List<TourRating> getAllTourRatings(String tourId) {
         throw new NotImplementedException("Not implemented");
     }
 
@@ -50,7 +49,7 @@ public interface ITourRatingService {
      * @param tourId
      * @return
      */
-    default public Map<String, Double> getAverageRatingForTour(Integer tourId) {
+    default public Map<String, Double> getAverageRatingForTour(String tourId) {
         throw new NotImplementedException("Not implemented");
     }
 
@@ -61,7 +60,7 @@ public interface ITourRatingService {
      * @param rating the rating
      * @return the updated tour rating
      **/
-    default public RatingDto updateTourRating(Integer id, RatingDto rating) {
+    default public TourRating updateTourRating(String id, TourRating rating) {
         throw new NotImplementedException("Not implemented");
     }
 
@@ -72,7 +71,7 @@ public interface ITourRatingService {
      * @param customerId
      * @return
      */
-    default public TourRating findTourRatingByIdAndCustomerId(Integer id, Integer customerId) {
+    default public TourRating findTourRatingByIdAndCustomerId(String id, String customerId) {
         throw new NotImplementedException("Not implemented");
     }
 
@@ -83,7 +82,7 @@ public interface ITourRatingService {
      * @param rating
      * @return
      */
-    default RatingDto updateTourRatingWithPatch(Integer id, RatingDto rating) {
+    default TourRating updateTourRatingWithPatch(String id, TourRating rating) {
         throw new NotImplementedException("Not implemented");
     }
 
@@ -92,7 +91,7 @@ public interface ITourRatingService {
      * @param id
      * @param customerId
      */
-    default public void deleteTourRating(Integer id, Integer customerId) {
+    default public void deleteTourRating(String id, String customerId) {
         throw new NotImplementedException("Not implemented");
     }
 }

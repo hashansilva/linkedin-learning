@@ -15,7 +15,7 @@
 
 package com.hashan.example.explorecali.controller;
 
-import com.hashan.example.explorecali.model.RatingDto;
+import com.hashan.example.explorecali.domain.TourRating;
 import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
@@ -30,23 +30,25 @@ public interface ITourRatingController {
 
     /**
      * Create a new Tour Rating
+     *
      * @param id
      * @param rating
      */
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    default public void createTourRating(@PathVariable(value = "id") Integer id, @RequestBody @Validated RatingDto rating) {
+    default public void createTourRating(@PathVariable(value = "id") String id, @RequestBody @Validated TourRating rating) {
         throw new NotImplementedException("Not implemented");
     }
 
     /**
      * Get all ratings for the given tour
+     *
      * @param id
      * @return
      */
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    default public List<RatingDto> getAllRatingsForTour(@PathVariable(value = "id") Integer id){
+    default public List<TourRating> getAllRatingsForTour(@PathVariable(value = "id") String id) {
         throw new NotImplementedException("Not implemented");
     }
 
@@ -55,7 +57,7 @@ public interface ITourRatingController {
      */
     @GetMapping(path = "average")
     @ResponseStatus(HttpStatus.OK)
-    default public Map<String, Double> getAverageRatingForTour(@PathVariable(value = "id") Integer id) {
+    default public Map<String, Double> getAverageRatingForTour(@PathVariable(value = "id") String id) {
         throw new NotImplementedException("Not implemented");
     }
 
@@ -68,7 +70,7 @@ public interface ITourRatingController {
      */
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
-    default public RatingDto updateTourRating(@PathVariable(value = "id") Integer id, @RequestBody @Validated RatingDto rating) {
+    default public TourRating updateTourRating(@PathVariable(value = "id") String id, @RequestBody @Validated TourRating rating) {
         throw new NotImplementedException("Not implemented");
     }
 
@@ -81,7 +83,7 @@ public interface ITourRatingController {
      */
     @PatchMapping
     @ResponseStatus(HttpStatus.OK)
-    default public RatingDto updateTourRatingWithPatch(@PathVariable(value = "id") Integer id, @RequestBody @Validated RatingDto rating) {
+    default public TourRating updateTourRatingWithPatch(@PathVariable(value = "id") String id, @RequestBody @Validated TourRating rating) {
         throw new NotImplementedException("Not implemented");
     }
 
@@ -93,7 +95,7 @@ public interface ITourRatingController {
      */
     @DeleteMapping(path = "/{customerId}")
     @ResponseStatus(HttpStatus.OK)
-    default public void deleteTourRating(@PathVariable(value = "id") Integer id, @PathVariable(value = "customerId") Integer customerId) {
+    default public void deleteTourRating(@PathVariable(value = "id") String id, @PathVariable(value = "customerId") String customerId) {
         throw new NotImplementedException("Not implemented");
     }
 
