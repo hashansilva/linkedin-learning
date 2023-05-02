@@ -9,8 +9,6 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.PutObjectResult;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
 
 public class S3Uploader {
 
