@@ -15,7 +15,26 @@
 
 package com.hashan.silva;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class Hangman {
+
+    public Set<String> usedWordsSet = new HashSet<>();
+    public List<String> wordsList = new ArrayList<>();
+
+    /**
+     * Returns how many times the alphabet appears in the word
+     *
+     * @param word
+     * @param alphabet
+     * @return
+     */
     public int countAlphabet(String word, char alphabet) {
         int result = 0;
         for (char c : word.toCharArray()) {
@@ -25,4 +44,76 @@ public class Hangman {
         }
         return result;
     }
+
+    /**
+     * Returns a word of requestedLength from the wordList
+     *
+     * @param requestedLength
+     * @return
+     */
+    public String fetchWord(int requestedLength) {
+        String result = null;
+        for (String word : wordsList) {
+            if (word.length() == requestedLength && usedWordsSet.add(word)) {
+                result = word;
+                break;
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Reads each line that has a word from WordSource.txt
+     */
+    public void loadWords() {
+        String line;
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("WordSource.txt"))) {
+            while ((line = bufferedReader.readLine()) != null) {
+                wordsList.add(line);
+            }
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    /**
+     * Returns a string of same number of dashes as the length of the word passed in
+     *
+     * @param word
+     * @return
+     */
+    public String fetchClue(String word) {
+        StringBuilder clue = new StringBuilder();
+        for (int i = 0; i < word.length(); i++) {
+            clue.append("-");
+        }
+        return clue.toString();
+    }
+
+    /**
+     * Returns a new clue
+     *
+     * @param word
+     * @param clue
+     * @param guess
+     * @return
+     */
+    public String fetchClue(String word, String clue, char guess) {
+        if (guess >= 'A' && guess <= 'Z') {
+            guess += 32;
+        }
+        if (guess < 'a' || guess > 'z') {
+            throw new IllegalArgumentException("Invalid character");
+        }
+        StringBuilder newClue = new StringBuilder();
+        for (int i = 0; i < word.length(); i++) {
+            if (guess == word.charAt(i) && guess != clue.charAt(i)) {
+                newClue.append(guess);
+            } else {
+                newClue.append(clue.charAt(i));
+            }
+        }
+        return newClue.toString();
+    }
+
 }
