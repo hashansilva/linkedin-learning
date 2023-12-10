@@ -25,8 +25,11 @@ import java.util.Set;
 
 public class Hangman {
 
+    public static final int MAX_TRIALS = 10;
     public Set<String> usedWordsSet = new HashSet<>();
     public List<String> wordsList = new ArrayList<>();
+    public int remainingTrials;
+    public int score;
 
     /**
      * Returns how many times the alphabet appears in the word
@@ -53,6 +56,7 @@ public class Hangman {
      */
     public String fetchWord(int requestedLength) {
         String result = null;
+        remainingTrials = MAX_TRIALS;
         for (String word : wordsList) {
             if (word.length() == requestedLength && usedWordsSet.add(word)) {
                 result = word;
@@ -99,6 +103,7 @@ public class Hangman {
      * @return
      */
     public String fetchClue(String word, String clue, char guess) {
+        remainingTrials--;
         if (guess >= 'A' && guess <= 'Z') {
             guess += 32;
         }
@@ -109,6 +114,7 @@ public class Hangman {
         for (int i = 0; i < word.length(); i++) {
             if (guess == word.charAt(i) && guess != clue.charAt(i)) {
                 newClue.append(guess);
+                score += (double) MAX_TRIALS / word.length();
             } else {
                 newClue.append(clue.charAt(i));
             }
